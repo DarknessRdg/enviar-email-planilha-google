@@ -186,7 +186,6 @@ function is_date(value) {
  * Transforma uma string no formato DD/MM/YYYY no tipo Date()
  */
 function parse_data(data) {
-  console.log('data n é data: ', data)
   var dia  = data.split("/")[0]
   var mes  = data.split("/")[1]
   var ano  = data.split("/")[2]
