@@ -22,6 +22,31 @@ const ASSUNTO_DO_EMAIL = "Educa Damásio - Etapa em atraso"
 // Adicione a mensagem que irá aparecer no corpo do e-mail
 const MENSAGEM_NO_CORPO_DO_EMAIL = "Olá! Notamos que a sua etapa está em atraso. nos procure para negociarmos um novo prazo."
 
+// Adicione aqui um código HTML para ser exibido no corpo do e-mail
+const MENSAGEM_COMO_HTML = `
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <h1 style="text-align: center">Olá, parece que vocês está atrasado</h1>
+    <p>
+        Notamos que a sua etapa está em atraso.
+        Nos procure para negociarmos um novo prazo.
+    </p>
+    <p>
+        Qualquer dúvida entre em contato com o nosso e-mail:
+        <span style="color: #1e90ff">test@email.com</span>
+    </p>
+    <p>Atenciosamente!</p>
+    <p>
+        Confia nosso site <a href="#!">aqui</a>
+    </p>
+</body>
+</html>
+`
+
 
 /** ----------- FIM DAS CONFIGURACOES ----------- */
 
@@ -50,7 +75,7 @@ function main() {
  * Envia o e-mail para um e-email que está atrasado
  */
 function envia_email(email) {
-  EMAIL_APP.sendEmail(email, ASSUNTO_DO_EMAIL, MENSAGEM_NO_CORPO_DO_EMAIL)
+  EMAIL_APP.sendEmail(email, ASSUNTO_DO_EMAIL, MENSAGEM_NO_CORPO_DO_EMAIL, {htmlBody: MENSAGEM_COMO_HTML})
 }
 
 /**
@@ -186,6 +211,7 @@ function is_date(value) {
  * Transforma uma string no formato DD/MM/YYYY no tipo Date()
  */
 function parse_data(data) {
+  console.log('data n é data: ', data)
   var dia  = data.split("/")[0]
   var mes  = data.split("/")[1]
   var ano  = data.split("/")[2]
