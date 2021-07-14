@@ -71,7 +71,8 @@ function get_todos_emails_atrasados() {
       return
     }
 
-    if (esta_atrasado(vencimento)) {
+    if (
+      trasado(vencimento)) {
         console.log("Email atrasado: ",  email, " --- Data vencimento: ", vencimento.toLocaleDateString())
         emails_atrasados.push(email)
     }
@@ -90,7 +91,7 @@ function get_todos_emails_atrasados() {
 function esta_atrasado(vencimento) {
   const hoje = new Date()
 
-  return hoje <= vencimento
+  return vencimento <= hoje
 }
 
 
